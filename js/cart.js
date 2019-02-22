@@ -88,7 +88,12 @@ function sendEmail() {
 					"cart" : cart
 				},
 				function(data) {
-					console.log(data);
+					if (data==1) {
+						alert('Заказ отправлен');
+					}
+					else {
+						alert('Повторите Заказ');
+					}
 				}
 			);
 		}
