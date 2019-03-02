@@ -25,6 +25,7 @@ function goodsOut(data) {
 		// out +='</div>';
 		// //--------
 		out +='<div class="cart">';
+		out +=`<button class="later" data-id="${key}">&hearts;</button>`;
 		out +=`<p class="name">${data[key].name}</p>`;
 		out +=`<img src="images/${data[key].img}" alt="">`;
 		out +=`<div class="cost">${data[key].cost}</div>`;
@@ -33,7 +34,21 @@ function goodsOut(data) {
 	}
 	$('.goods-out').html(out); 
 	$('.add-to-cart').on('click', addToCart);
+	$('.later').on('click', addToLater);
 }
+
+function addToLater() {
+	//добавляю товар в "желания" 
+	var later = {};
+	if (localStorage.getItem('later')) {
+		later = JSON.parse(localStorage.getItem('later'));
+	}
+	alert('Добавлено в желания');
+	var id = $(this).attr('data-id');
+	later[id] = 1;
+	localStorage.setItem('later', JSON.stringify(later));
+}
+
 
 function addToCart() {
 	//добавляем товар в корзину
