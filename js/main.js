@@ -1,12 +1,20 @@
 var cart = {} //корзина
 function init() {
 	//вычитуем файл goods.json
-	$.getJSON("goods.json", goodsOut);
+	// $.getJSON("goods.json", goodsOut);
+	$.post(
+		"admin/core.php",
+		{
+			"action" : "loadGoods"
+		},
+		goodsOut
+	);
 }
 
 function goodsOut(data) {
 	//вывод на страницу
 	console.log(data);
+	data = JSON.parse(data); 
 	var out='';
 	for (var key in data) {
 		// out +='<div class="cart">';
