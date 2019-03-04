@@ -19,4 +19,7 @@ switch ($action) {
     case "loadGoods":
         loadGoods();
         break;
+    case "loadSingleGoods":
+        loadSingleGoods();
+        break;      
 }

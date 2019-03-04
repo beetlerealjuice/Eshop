@@ -1,6 +1,6 @@
 var cart = {};
 function loadCart() {
-	if (localStorage.getItem('cart')) {
+		if (localStorage.getItem('cart')) {
 		cart = JSON.parse(localStorage.getItem('cart'));
 			showCart();
 	}
